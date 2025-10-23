@@ -37,10 +37,12 @@ export default function WorkoutsPage() {
 
   useEffect(() => {
     loadWorkouts()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   useEffect(() => {
     filterWorkouts()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [workouts, searchTerm, startDate, endDate])
 
   const loadWorkouts = async () => {

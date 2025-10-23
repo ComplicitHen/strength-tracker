@@ -4,16 +4,19 @@ import { useEffect, useState } from 'react'
 
 export default function DarkModeToggle() {
   const [darkMode, setDarkMode] = useState(false)
+  const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
+    setMounted(true)
     // Check for saved preference or system preference
     const savedMode = localStorage.getItem('darkMode')
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
 
-    if (savedMode === 'true' || (!savedMode && prefersDark)) {
-      setDarkMode(true)
+    const shouldBeDark = savedMode === 'true' || (!savedMode && prefersDark)
+    if (shouldBeDark) {
       document.documentElement.classList.add('dark')
     }
+    setDarkMode(shouldBeDark)
   }, [])
 
   const toggleDarkMode = () => {

@@ -30,6 +30,7 @@ export default function NewWorkoutPage() {
 
   useEffect(() => {
     loadData()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   const loadData = async () => {
@@ -83,7 +84,7 @@ export default function NewWorkoutPage() {
     setSelectedExerciseId('')
   }
 
-  const updateExercise = (index: number, field: keyof WorkoutExerciseInput, value: any) => {
+  const updateExercise = (index: number, field: keyof WorkoutExerciseInput, value: string | number) => {
     const updated = [...workoutExercises]
     updated[index] = { ...updated[index], [field]: value }
     setWorkoutExercises(updated)

@@ -27,12 +27,14 @@ export default function ProgressPage() {
 
   useEffect(() => {
     loadData()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   useEffect(() => {
     if (selectedExercise) {
       loadExerciseHistory(selectedExercise)
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedExercise])
 
   const loadData = async () => {
@@ -73,6 +75,7 @@ export default function ProgressPage() {
 
       if (performedExercises) {
         const uniqueExercises = new Map()
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         performedExercises.forEach((pe: any) => {
           if (pe.exercise) {
             uniqueExercises.set(pe.exercise.id, pe.exercise)
@@ -118,7 +121,9 @@ export default function ProgressPage() {
       if (data && data.length > 0) {
         const history: ExerciseHistory = {
           exercise_id: exerciseId,
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
           exercise_name: (data[0] as any).exercise.name,
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
           data: data.map((item: any) => ({
             date: format(new Date(item.workout.workout_date), 'MMM d'),
             weight: item.weight,

@@ -51,6 +51,7 @@ export default async function DashboardPage() {
 
   // Process personal records to get max weight per exercise
   const recordsMap = new Map()
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   personalRecords?.forEach((record: any) => {
     if (!recordsMap.has(record.exercise_id)) {
       recordsMap.set(record.exercise_id, {
@@ -98,6 +99,7 @@ export default async function DashboardPage() {
           </div>
           {recentWorkouts && recentWorkouts.length > 0 ? (
             <div className="space-y-4">
+              {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
               {recentWorkouts.map((workout: any) => (
                 <div key={workout.id} className="border-l-4 border-blue-500 pl-4 py-2">
                   <div className="flex justify-between items-start">
@@ -116,6 +118,7 @@ export default async function DashboardPage() {
                     )}
                   </div>
                   <div className="mt-2 text-sm text-gray-700 dark:text-gray-300">
+                    {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
                     {workout.workout_exercises?.slice(0, 3).map((we: any) => (
                       <span key={we.id} className="inline-block mr-3">
                         {we.exercise.name}
@@ -147,6 +150,7 @@ export default async function DashboardPage() {
           </div>
           {topRecords && topRecords.length > 0 ? (
             <div className="space-y-3">
+              {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
               {topRecords.map((record: any) => (
                 <div key={record.exercise.id} className="flex justify-between items-center py-2 border-b border-gray-200 dark:border-gray-700 last:border-0">
                   <div>

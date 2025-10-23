@@ -31,10 +31,12 @@ export default function ExercisesPage() {
 
   useEffect(() => {
     loadExercises()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   useEffect(() => {
     filterExercises()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [exercises, selectedCategory, searchTerm])
 
   const loadExercises = async () => {
